@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 using MvvmCross.Core.ViewModels;
 using System.Windows.Threading;
 using MvvmCross.Wpf.Views;
-using MvvmCross.Core.ViewModels;
+ 
 namespace TipCalc.UI.Wpf
 {
    public class Setup : MvxWpfSetup
     {
-        public Setup(Dispatcher uiThreadDispatcher, IMvxViewPresenter presenter)
+        public Setup(Dispatcher uiThreadDispatcher, IMvxWpfViewPresenter presenter)
             :base(uiThreadDispatcher, presenter)
         {
             
@@ -20,7 +20,7 @@ namespace TipCalc.UI.Wpf
 
         protected override IMvxApplication CreateApp()
         {
-            throw new NotImplementedException();
+            return new Core.App();
         }
     }
 }
