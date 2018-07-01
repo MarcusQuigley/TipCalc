@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows.Input;
 using TipCalc.Core.Services;
 
 namespace TipCalc.Core.ViewModels
@@ -48,6 +49,11 @@ namespace TipCalc.Core.ViewModels
                 _tip = value;
                 base.RaisePropertyChanged(() => Tip);
              }
+        }
+
+        public ICommand FinishCommand
+        {
+            get => new MvxCommand(() => ShowViewModel<SummaryViewModel>());
         }
 
         public override void Start()

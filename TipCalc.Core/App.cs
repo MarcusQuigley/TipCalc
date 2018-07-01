@@ -14,7 +14,7 @@ namespace TipCalc.Core
         public App()
         {
             Mvx.RegisterType<ICalculationService, CalculationService>();
-            Mvx.RegisterSingleton<IMvxAppStart>(new MvxAppStart<TipViewModel>());
+            Mvx.RegisterSingleton<IMvxAppStart>(new MvxAppStart<LoginViewModel>());
         }
     }
 }
