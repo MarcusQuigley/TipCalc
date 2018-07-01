@@ -1,4 +1,5 @@
-﻿using MvvmCross.Core.ViewModels;
+﻿using MvvmCross.Core.Navigation;
+using MvvmCross.Core.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,10 +10,23 @@ namespace TipCalc.Core.ViewModels
     public class LoginViewModel : MvxViewModel
     {
         private string _id;
+        private IMvxAsyncCommand _loginCommand;
+        private IMvxNavigationService _navigationService;
 
-        public ICommand LoginCommand
+        public LoginViewModel(IMvxNavigationService navigationService)
         {
-            get => new MvxCommand(() => base.ShowViewModel<TipViewModel>(), CanExecute);
+            _navigationService = navigationService;
+        }
+        public IMvxAsyncCommand LoginCommand
+        {
+          //  get => new MvxCommand(() => base.ShowViewModel<TipViewModel>(), CanExecute);
+            get {
+                if (_loginCommand == null)
+                {
+                    _loginCommand = new MvxAsyncCommand(() => _navigationService.Navigate<TipViewModel>(),CanExecute);
+                }
+                return _loginCommand;
+        }
         }
 
         public string Id
@@ -24,7 +38,7 @@ namespace TipCalc.Core.ViewModels
                 {
                     _id = value;
                     base.RaisePropertyChanged(() => Id);
-                    base.RaiseAllPropertiesChanged();
+                    LoginCommand.RaiseCanExecuteChanged();
                 }
             }
         }

@@ -1,4 +1,5 @@
-﻿using MvvmCross.Core.ViewModels;
+﻿using MvvmCross.Core.Navigation;
+using MvvmCross.Core.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -13,10 +14,12 @@ namespace TipCalc.Core.ViewModels
         double _subTotal;
         double _tip;
         int _generosity;
-
-        public TipViewModel(ICalculationService service)
+        IMvxNavigationService _navigationService;
+        IMvxAsyncCommand _finishCommand;
+        public TipViewModel(ICalculationService service, IMvxNavigationService navigationService)
         {
             _service = service;
+            _navigationService=  navigationService;
         }
 
         public double SubTotal
@@ -51,10 +54,17 @@ namespace TipCalc.Core.ViewModels
              }
         }
 
-        public ICommand FinishCommand
+        public IMvxAsyncCommand FinishCommand
         {
-            get => new MvxCommand(() => ShowViewModel<SummaryViewModel>());
-        }
+            get {
+                if (_finishCommand == null)
+                {
+                    _finishCommand = new MvxAsyncCommand(() => _navigationService.Navigate<SummaryViewModel>());
+                }
+                return _finishCommand;
+            }
+            //get => new MvxCommand(() => ShowViewModel<SummaryViewModel>());
+         }
 
         public override void Start()
         {
