@@ -12,7 +12,7 @@ namespace TipCalc.Core.ViewModels
 
         public ICommand LoginCommand
         {
-            get => new MvxCommand(() => base.ShowViewModel<TipViewModel>());
+            get => new MvxCommand(() => base.ShowViewModel<TipViewModel>(), CanExecute);
         }
 
         public string Id
@@ -24,9 +24,14 @@ namespace TipCalc.Core.ViewModels
                 {
                     _id = value;
                     base.RaisePropertyChanged(() => Id);
-                 
+                    base.RaiseAllPropertiesChanged();
                 }
             }
+        }
+
+        public bool CanExecute()
+        {
+            return !string.IsNullOrEmpty(Id);
         }
     }
 }
