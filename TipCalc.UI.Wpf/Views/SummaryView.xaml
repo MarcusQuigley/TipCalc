@@ -8,6 +8,7 @@
              mc:Ignorable="d" 
               >
     <Grid ShowGridLines="False">
-        <TextBlock Text="All Done!" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock Text="All Done!" FontSize="24" FontWeight="Bold" Foreground="DodgerBlue"
+                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
     </Grid>
 </views:MvxWpfView>
