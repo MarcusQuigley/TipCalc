@@ -67,14 +67,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Setup.cs" />
-    <Compile Include="Views\SummaryView.xaml.cs">
-      <DependentUpon>SummaryView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\TipView.xaml.cs">
+    <Compile Include="TipView.xaml.cs">
       <DependentUpon>TipView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\LoginView.xaml.cs">
-      <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -88,15 +82,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\SummaryView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\TipView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\LoginView.xaml">
+    <Page Include="TipView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
