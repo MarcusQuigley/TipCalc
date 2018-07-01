@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
 using TipCalc.Core.Services;
+using System.Threading.Tasks;
 
 namespace TipCalc.Core.ViewModels
 {
@@ -65,12 +66,16 @@ namespace TipCalc.Core.ViewModels
             }
             //get => new MvxCommand(() => ShowViewModel<SummaryViewModel>());
          }
-
-        public override void Start()
+        public override Task Initialize()
         {
             _subTotal = 100;
             _generosity = 10;
             Recalculate();
+            return base.Initialize();
+        }
+        public override void Start()
+        {
+            
             base.Start();
         }
 
