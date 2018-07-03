@@ -1,13 +1,10 @@
-﻿using MvvmCross.Wpf.Platform;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MvvmCross.Wpf.Views;
+using MvvmCross.Wpf.Views.Presenters;
+using MvvmCross.Wpf.Platform;
 using MvvmCross.Core.ViewModels;
 using System.Windows.Threading;
-using MvvmCross.Wpf.Views;
- 
+
+
 namespace TipCalc.UI.Wpf
 {
    public class Setup : MvxWpfSetup

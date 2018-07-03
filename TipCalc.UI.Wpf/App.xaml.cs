@@ -1,6 +1,7 @@
 ﻿using MvvmCross.Core.ViewModels;
 using MvvmCross.Platform;
-using MvvmCross.Wpf.Views;
+ 
+using MvvmCross.Wpf.Views.Presenters;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -20,7 +21,7 @@ namespace TipCalc.UI.Wpf
 
         void DoSetup()
         {
-            var presenter = new MvxSimpleWpfViewPresenter(MainWindow);
+            var presenter = new MvxWpfViewPresenter(MainWindow);
 
             var setup = new Setup(this.Dispatcher, presenter);
             setup.Initialize();
